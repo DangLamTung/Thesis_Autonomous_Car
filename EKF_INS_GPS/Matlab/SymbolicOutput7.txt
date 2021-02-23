@@ -1,0 +1,150 @@
+
+SPP = zeros(12,1);
+SPP(1) = OP_l_4_c_7_r_ + (OP_l_5_c_7_r_*t*x2)/2 - (OP_l_6_c_7_r_*t*x1)/2 - (OP_l_7_c_7_r_*t*x0)/2;
+SPP(2) = OP_l_4_c_6_r_ + (OP_l_5_c_6_r_*t*x2)/2 - (OP_l_6_c_6_r_*t*x1)/2 - (OP_l_7_c_6_r_*t*x0)/2;
+SPP(3) = OP_l_4_c_5_r_ + (OP_l_5_c_5_r_*t*x2)/2 - (OP_l_6_c_5_r_*t*x1)/2 - (OP_l_7_c_5_r_*t*x0)/2;
+SPP(4) = OP_l_3_c_7_r_ - (OP_l_5_c_7_r_*t*x3)/2 - (OP_l_6_c_7_r_*t*x0)/2 + (OP_l_7_c_7_r_*t*x1)/2;
+SPP(5) = OP_l_3_c_6_r_ - (OP_l_5_c_6_r_*t*x3)/2 - (OP_l_6_c_6_r_*t*x0)/2 + (OP_l_7_c_6_r_*t*x1)/2;
+SPP(6) = OP_l_3_c_5_r_ - (OP_l_5_c_5_r_*t*x3)/2 - (OP_l_6_c_5_r_*t*x0)/2 + (OP_l_7_c_5_r_*t*x1)/2;
+SPP(7) = OP_l_2_c_7_r_ - (OP_l_5_c_7_r_*t*x0)/2 + (OP_l_6_c_7_r_*t*x3)/2 - (OP_l_7_c_7_r_*t*x2)/2;
+SPP(8) = OP_l_2_c_6_r_ - (OP_l_5_c_6_r_*t*x0)/2 + (OP_l_6_c_6_r_*t*x3)/2 - (OP_l_7_c_6_r_*t*x2)/2;
+SPP(9) = OP_l_2_c_5_r_ - (OP_l_5_c_5_r_*t*x0)/2 + (OP_l_6_c_5_r_*t*x3)/2 - (OP_l_7_c_5_r_*t*x2)/2;
+SPP(10) = OP_l_1_c_7_r_ + (OP_l_5_c_7_r_*t*x1)/2 + (OP_l_6_c_7_r_*t*x2)/2 + (OP_l_7_c_7_r_*t*x3)/2;
+SPP(11) = OP_l_1_c_6_r_ + (OP_l_5_c_6_r_*t*x1)/2 + (OP_l_6_c_6_r_*t*x2)/2 + (OP_l_7_c_6_r_*t*x3)/2;
+SPP(12) = OP_l_1_c_5_r_ + (OP_l_5_c_5_r_*t*x1)/2 + (OP_l_6_c_5_r_*t*x2)/2 + (OP_l_7_c_5_r_*t*x3)/2;
+
+
+P = zeros(7,7);
+P(1,1) = OP_l_1_c_1_r_ + (OP_l_5_c_1_r_*t*x1)/2 + (OP_l_6_c_1_r_*t*x2)/2 + (OP_l_7_c_1_r_*t*x3)/2 + (t*x1*SPP(12))/2 + (t*x2*SPP(11))/2 + (t*x3*SPP(10))/2;
+P(1,2) = OP_l_1_c_2_r_ + (OP_l_5_c_2_r_*t*x1)/2 + (OP_l_6_c_2_r_*t*x2)/2 + (OP_l_7_c_2_r_*t*x3)/2 - (t*x0*SPP(12))/2 - (t*x2*SPP(10))/2 + (t*x3*SPP(11))/2;
+P(2,2) = OP_l_2_c_2_r_ - (OP_l_5_c_2_r_*t*x0)/2 + (OP_l_6_c_2_r_*t*x3)/2 - (OP_l_7_c_2_r_*t*x2)/2 - (t*x0*SPP(9))/2 - (t*x2*SPP(7))/2 + (t*x3*SPP(8))/2;
+P(1,3) = OP_l_1_c_3_r_ + (OP_l_5_c_3_r_*t*x1)/2 + (OP_l_6_c_3_r_*t*x2)/2 + (OP_l_7_c_3_r_*t*x3)/2 - (t*x0*SPP(11))/2 + (t*x1*SPP(10))/2 - (t*x3*SPP(12))/2;
+P(2,3) = OP_l_2_c_3_r_ - (OP_l_5_c_3_r_*t*x0)/2 + (OP_l_6_c_3_r_*t*x3)/2 - (OP_l_7_c_3_r_*t*x2)/2 - (t*x0*SPP(8))/2 + (t*x1*SPP(7))/2 - (t*x3*SPP(9))/2;
+P(3,3) = OP_l_3_c_3_r_ - (OP_l_5_c_3_r_*t*x3)/2 - (OP_l_6_c_3_r_*t*x0)/2 + (OP_l_7_c_3_r_*t*x1)/2 - (t*x0*SPP(5))/2 + (t*x1*SPP(4))/2 - (t*x3*SPP(6))/2;
+P(1,4) = OP_l_1_c_4_r_ + (OP_l_5_c_4_r_*t*x1)/2 + (OP_l_6_c_4_r_*t*x2)/2 + (OP_l_7_c_4_r_*t*x3)/2 - (t*x0*SPP(10))/2 - (t*x1*SPP(11))/2 + (t*x2*SPP(12))/2;
+P(2,4) = OP_l_2_c_4_r_ - (OP_l_5_c_4_r_*t*x0)/2 + (OP_l_6_c_4_r_*t*x3)/2 - (OP_l_7_c_4_r_*t*x2)/2 - (t*x0*SPP(7))/2 - (t*x1*SPP(8))/2 + (t*x2*SPP(9))/2;
+P(3,4) = OP_l_3_c_4_r_ - (OP_l_5_c_4_r_*t*x3)/2 - (OP_l_6_c_4_r_*t*x0)/2 + (OP_l_7_c_4_r_*t*x1)/2 - (t*x0*SPP(4))/2 - (t*x1*SPP(5))/2 + (t*x2*SPP(6))/2;
+P(4,4) = OP_l_4_c_4_r_ + (OP_l_5_c_4_r_*t*x2)/2 - (OP_l_6_c_4_r_*t*x1)/2 - (OP_l_7_c_4_r_*t*x0)/2 - (t*x0*SPP(1))/2 - (t*x1*SPP(2))/2 + (t*x2*SPP(3))/2;
+P(1,5) = SPP(12);
+P(2,5) = SPP(9);
+P(3,5) = SPP(6);
+P(4,5) = SPP(3);
+P(5,5) = OP_l_5_c_5_r_;
+P(1,6) = SPP(11);
+P(2,6) = SPP(8);
+P(3,6) = SPP(5);
+P(4,6) = SPP(2);
+P(5,6) = OP_l_5_c_6_r_;
+P(6,6) = OP_l_6_c_6_r_;
+P(1,7) = SPP(10);
+P(2,7) = SPP(7);
+P(3,7) = SPP(4);
+P(4,7) = SPP(1);
+P(5,7) = OP_l_5_c_7_r_;
+P(6,7) = OP_l_6_c_7_r_;
+P(7,7) = OP_l_7_c_7_r_;
+
+
+x(1,1) = x0 - (Gx*t*x1)/2 - (Gy*t*x2)/2 - (Gz*t*x3)/2 + (t*x1*x4)/2 + (t*x2*x5)/2 + (t*x3*x6)/2;
+x(2,1) = x1 + (Gx*t*x0)/2 - (Gy*t*x3)/2 + (Gz*t*x2)/2 - (t*x0*x4)/2 - (t*x2*x6)/2 + (t*x3*x5)/2;
+x(3,1) = x2 + (Gx*t*x3)/2 + (Gy*t*x0)/2 - (Gz*t*x1)/2 - (t*x0*x5)/2 + (t*x1*x6)/2 - (t*x3*x4)/2;
+x(4,1) = x3 - (Gx*t*x2)/2 + (Gy*t*x1)/2 + (Gz*t*x0)/2 - (t*x0*x6)/2 - (t*x1*x5)/2 + (t*x2*x4)/2;
+x(5,1) = x4;
+x(6,1) = x5;
+x(7,1) = x6;
+
+
+Ha_b = zeros(2,1);
+Ha_b(1,1) = 2*x4;
+Ha_b(2,1) = 2*x3;
+
+
+H_a = zeros(3,7);
+H_a(1,2) = Ha_b(2);
+H_a(1,3) = Ha_b(1);
+H_a(1,4) = 2*x1;
+H_a(1,5) = 2*x2;
+H_a(2,2) = -2*x2;
+H_a(2,3) = -2*x1;
+H_a(2,4) = Ha_b(1);
+H_a(2,5) = Ha_b(2);
+H_a(3,2) = 2*x1;
+H_a(3,3) = -2*x2;
+H_a(3,4) = -Ha_b(2);
+H_a(3,5) = Ha_b(1);
+
+
+Hm_b = zeros(1,1);
+Hm_b(1,1) = 2*x4;
+
+H_m = zeros(3,7);
+H_a(1,2) = Hm_b(1);
+H_a(1,3) = -2*x3;
+H_a(1,4) = -2*x2;
+H_a(1,5) = 2*x1;
+H_a(2,2) = -2*x1;
+H_a(2,3) = 2*x2;
+H_a(2,4) = -2*x3;
+H_a(2,5) = Hm_b(1);
+H_a(3,2) = -2*x2;
+H_a(3,3) = -2*x1;
+H_a(3,4) = -Hm_b(1);
+H_a(3,5) = -2*x3;
+
+
+
+SK = zeros(8,1);
+SK(1,1) = 1/(Rmx - Hm_b(1)*(2*OP_l_3_c_2_r_*x3 + 2*OP_l_4_c_2_r_*x2 - 2*OP_l_5_c_2_r_*x1 - OP_l_2_c_2_r_*Hm_b(1)) + 2*x3*(2*OP_l_3_c_3_r_*x3 + 2*OP_l_4_c_3_r_*x2 - 2*OP_l_5_c_3_r_*x1 - OP_l_2_c_3_r_*Hm_b(1)) + 2*x2*(2*OP_l_3_c_4_r_*x3 + 2*OP_l_4_c_4_r_*x2 - 2*OP_l_5_c_4_r_*x1 - OP_l_2_c_4_r_*Hm_b(1)) - 2*x1*(2*OP_l_3_c_5_r_*x3 + 2*OP_l_4_c_5_r_*x2 - 2*OP_l_5_c_5_r_*x1 - OP_l_2_c_5_r_*Hm_b(1)));
+SK(2,1) = 1/(Ray - Ha_b(1)*(2*OP_l_2_c_4_r_*x2 + 2*OP_l_3_c_4_r_*x1 - OP_l_4_c_4_r_*Ha_b(1) - OP_l_5_c_4_r_*Ha_b(2)) - Ha_b(2)*(2*OP_l_2_c_5_r_*x2 + 2*OP_l_3_c_5_r_*x1 - OP_l_4_c_5_r_*Ha_b(1) - OP_l_5_c_5_r_*Ha_b(2)) + 2*x2*(2*OP_l_2_c_2_r_*x2 + 2*OP_l_3_c_2_r_*x1 - OP_l_4_c_2_r_*Ha_b(1) - OP_l_5_c_2_r_*Ha_b(2)) + 2*x1*(2*OP_l_2_c_3_r_*x2 + 2*OP_l_3_c_3_r_*x1 - OP_l_4_c_3_r_*Ha_b(1) - OP_l_5_c_3_r_*Ha_b(2)));
+SK(3,1) = 1/(Rmz + Hm_b(1)*(2*OP_l_2_c_4_r_*x2 + 2*OP_l_3_c_4_r_*x1 + 2*OP_l_5_c_4_r_*x3 + OP_l_4_c_4_r_*Hm_b(1)) + 2*x2*(2*OP_l_2_c_2_r_*x2 + 2*OP_l_3_c_2_r_*x1 + 2*OP_l_5_c_2_r_*x3 + OP_l_4_c_2_r_*Hm_b(1)) + 2*x1*(2*OP_l_2_c_3_r_*x2 + 2*OP_l_3_c_3_r_*x1 + 2*OP_l_5_c_3_r_*x3 + OP_l_4_c_3_r_*Hm_b(1)) + 2*x3*(2*OP_l_2_c_5_r_*x2 + 2*OP_l_3_c_5_r_*x1 + 2*OP_l_5_c_5_r_*x3 + OP_l_4_c_5_r_*Hm_b(1)));
+SK(4,1) = 1/(Rax + Ha_b(2)*(2*OP_l_4_c_2_r_*x1 + 2*OP_l_5_c_2_r_*x2 + OP_l_2_c_2_r_*Ha_b(2) + OP_l_3_c_2_r_*Ha_b(1)) + Ha_b(1)*(2*OP_l_4_c_3_r_*x1 + 2*OP_l_5_c_3_r_*x2 + OP_l_2_c_3_r_*Ha_b(2) + OP_l_3_c_3_r_*Ha_b(1)) + 2*x1*(2*OP_l_4_c_4_r_*x1 + 2*OP_l_5_c_4_r_*x2 + OP_l_2_c_4_r_*Ha_b(2) + OP_l_3_c_4_r_*Ha_b(1)) + 2*x2*(2*OP_l_4_c_5_r_*x1 + 2*OP_l_5_c_5_r_*x2 + OP_l_2_c_5_r_*Ha_b(2) + OP_l_3_c_5_r_*Ha_b(1)));
+SK(5,1) = 1/(Rmy - Hm_b(1)*(2*OP_l_2_c_5_r_*x1 - 2*OP_l_3_c_5_r_*x2 + 2*OP_l_4_c_5_r_*x3 - OP_l_5_c_5_r_*Hm_b(1)) + 2*x1*(2*OP_l_2_c_2_r_*x1 - 2*OP_l_3_c_2_r_*x2 + 2*OP_l_4_c_2_r_*x3 - OP_l_5_c_2_r_*Hm_b(1)) - 2*x2*(2*OP_l_2_c_3_r_*x1 - 2*OP_l_3_c_3_r_*x2 + 2*OP_l_4_c_3_r_*x3 - OP_l_5_c_3_r_*Hm_b(1)) + 2*x3*(2*OP_l_2_c_4_r_*x1 - 2*OP_l_3_c_4_r_*x2 + 2*OP_l_4_c_4_r_*x3 - OP_l_5_c_4_r_*Hm_b(1)));
+SK(6,1) = 1/(Raz - Ha_b(2)*(2*OP_l_2_c_4_r_*x1 - 2*OP_l_3_c_4_r_*x2 - OP_l_4_c_4_r_*Ha_b(2) + OP_l_5_c_4_r_*Ha_b(1)) + Ha_b(1)*(2*OP_l_2_c_5_r_*x1 - 2*OP_l_3_c_5_r_*x2 - OP_l_4_c_5_r_*Ha_b(2) + OP_l_5_c_5_r_*Ha_b(1)) + 2*x1*(2*OP_l_2_c_2_r_*x1 - 2*OP_l_3_c_2_r_*x2 - OP_l_4_c_2_r_*Ha_b(2) + OP_l_5_c_2_r_*Ha_b(1)) - 2*x2*(2*OP_l_2_c_3_r_*x1 - 2*OP_l_3_c_3_r_*x2 - OP_l_4_c_3_r_*Ha_b(2) + OP_l_5_c_3_r_*Ha_b(1)));
+SK(7,1) = Hm_b(1);
+SK(8,1) = Ha_b(1);
+
+
+K = zeros(7,6);
+K(1,1) = SK(4)*(OP_l_1_c_3_r_*SK(8) + 2*OP_l_1_c_4_r_*x1 + 2*OP_l_1_c_5_r_*x2 + OP_l_1_c_2_r_*Ha_b(2));
+K(1,2) = SK(2)*(OP_l_1_c_4_r_*SK(8) - 2*OP_l_1_c_2_r_*x2 - 2*OP_l_1_c_3_r_*x1 + OP_l_1_c_5_r_*Ha_b(2));
+K(1,3) = SK(6)*(OP_l_1_c_5_r_*SK(8) + 2*OP_l_1_c_2_r_*x1 - 2*OP_l_1_c_3_r_*x2 - OP_l_1_c_4_r_*Ha_b(2));
+K(1,4) = SK(1)*(OP_l_1_c_2_r_*SK(7) - 2*OP_l_1_c_3_r_*x3 - 2*OP_l_1_c_4_r_*x2 + 2*OP_l_1_c_5_r_*x1);
+K(1,5) = SK(5)*(OP_l_1_c_5_r_*SK(7) - 2*OP_l_1_c_2_r_*x1 + 2*OP_l_1_c_3_r_*x2 - 2*OP_l_1_c_4_r_*x3);
+K(1,6) = -SK(3)*(OP_l_1_c_4_r_*SK(7) + 2*OP_l_1_c_2_r_*x2 + 2*OP_l_1_c_3_r_*x1 + 2*OP_l_1_c_5_r_*x3);
+K(2,1) = SK(4)*(OP_l_2_c_3_r_*SK(8) + 2*OP_l_2_c_4_r_*x1 + 2*OP_l_2_c_5_r_*x2 + OP_l_2_c_2_r_*Ha_b(2));
+K(2,2) = SK(2)*(OP_l_2_c_4_r_*SK(8) - 2*OP_l_2_c_2_r_*x2 - 2*OP_l_2_c_3_r_*x1 + OP_l_2_c_5_r_*Ha_b(2));
+K(2,3) = SK(6)*(OP_l_2_c_5_r_*SK(8) + 2*OP_l_2_c_2_r_*x1 - 2*OP_l_2_c_3_r_*x2 - OP_l_2_c_4_r_*Ha_b(2));
+K(2,4) = SK(1)*(OP_l_2_c_2_r_*SK(7) - 2*OP_l_2_c_3_r_*x3 - 2*OP_l_2_c_4_r_*x2 + 2*OP_l_2_c_5_r_*x1);
+K(2,5) = SK(5)*(OP_l_2_c_5_r_*SK(7) - 2*OP_l_2_c_2_r_*x1 + 2*OP_l_2_c_3_r_*x2 - 2*OP_l_2_c_4_r_*x3);
+K(2,6) = -SK(3)*(OP_l_2_c_4_r_*SK(7) + 2*OP_l_2_c_2_r_*x2 + 2*OP_l_2_c_3_r_*x1 + 2*OP_l_2_c_5_r_*x3);
+K(3,1) = SK(4)*(OP_l_3_c_3_r_*SK(8) + 2*OP_l_3_c_4_r_*x1 + 2*OP_l_3_c_5_r_*x2 + OP_l_3_c_2_r_*Ha_b(2));
+K(3,2) = SK(2)*(OP_l_3_c_4_r_*SK(8) - 2*OP_l_3_c_2_r_*x2 - 2*OP_l_3_c_3_r_*x1 + OP_l_3_c_5_r_*Ha_b(2));
+K(3,3) = SK(6)*(OP_l_3_c_5_r_*SK(8) + 2*OP_l_3_c_2_r_*x1 - 2*OP_l_3_c_3_r_*x2 - OP_l_3_c_4_r_*Ha_b(2));
+K(3,4) = SK(1)*(OP_l_3_c_2_r_*SK(7) - 2*OP_l_3_c_3_r_*x3 - 2*OP_l_3_c_4_r_*x2 + 2*OP_l_3_c_5_r_*x1);
+K(3,5) = SK(5)*(OP_l_3_c_5_r_*SK(7) - 2*OP_l_3_c_2_r_*x1 + 2*OP_l_3_c_3_r_*x2 - 2*OP_l_3_c_4_r_*x3);
+K(3,6) = -SK(3)*(OP_l_3_c_4_r_*SK(7) + 2*OP_l_3_c_2_r_*x2 + 2*OP_l_3_c_3_r_*x1 + 2*OP_l_3_c_5_r_*x3);
+K(4,1) = SK(4)*(OP_l_4_c_3_r_*SK(8) + 2*OP_l_4_c_4_r_*x1 + 2*OP_l_4_c_5_r_*x2 + OP_l_4_c_2_r_*Ha_b(2));
+K(4,2) = SK(2)*(OP_l_4_c_4_r_*SK(8) - 2*OP_l_4_c_2_r_*x2 - 2*OP_l_4_c_3_r_*x1 + OP_l_4_c_5_r_*Ha_b(2));
+K(4,3) = SK(6)*(OP_l_4_c_5_r_*SK(8) + 2*OP_l_4_c_2_r_*x1 - 2*OP_l_4_c_3_r_*x2 - OP_l_4_c_4_r_*Ha_b(2));
+K(4,4) = SK(1)*(OP_l_4_c_2_r_*SK(7) - 2*OP_l_4_c_3_r_*x3 - 2*OP_l_4_c_4_r_*x2 + 2*OP_l_4_c_5_r_*x1);
+K(4,5) = SK(5)*(OP_l_4_c_5_r_*SK(7) - 2*OP_l_4_c_2_r_*x1 + 2*OP_l_4_c_3_r_*x2 - 2*OP_l_4_c_4_r_*x3);
+K(4,6) = -SK(3)*(OP_l_4_c_4_r_*SK(7) + 2*OP_l_4_c_2_r_*x2 + 2*OP_l_4_c_3_r_*x1 + 2*OP_l_4_c_5_r_*x3);
+K(5,1) = SK(4)*(OP_l_5_c_3_r_*SK(8) + 2*OP_l_5_c_4_r_*x1 + 2*OP_l_5_c_5_r_*x2 + OP_l_5_c_2_r_*Ha_b(2));
+K(5,2) = SK(2)*(OP_l_5_c_4_r_*SK(8) - 2*OP_l_5_c_2_r_*x2 - 2*OP_l_5_c_3_r_*x1 + OP_l_5_c_5_r_*Ha_b(2));
+K(5,3) = SK(6)*(OP_l_5_c_5_r_*SK(8) + 2*OP_l_5_c_2_r_*x1 - 2*OP_l_5_c_3_r_*x2 - OP_l_5_c_4_r_*Ha_b(2));
+K(5,4) = SK(1)*(OP_l_5_c_2_r_*SK(7) - 2*OP_l_5_c_3_r_*x3 - 2*OP_l_5_c_4_r_*x2 + 2*OP_l_5_c_5_r_*x1);
+K(5,5) = SK(5)*(OP_l_5_c_5_r_*SK(7) - 2*OP_l_5_c_2_r_*x1 + 2*OP_l_5_c_3_r_*x2 - 2*OP_l_5_c_4_r_*x3);
+K(5,6) = -SK(3)*(OP_l_5_c_4_r_*SK(7) + 2*OP_l_5_c_2_r_*x2 + 2*OP_l_5_c_3_r_*x1 + 2*OP_l_5_c_5_r_*x3);
+K(6,1) = SK(4)*(OP_l_6_c_3_r_*SK(8) + 2*OP_l_6_c_4_r_*x1 + 2*OP_l_6_c_5_r_*x2 + OP_l_6_c_2_r_*Ha_b(2));
+K(6,2) = SK(2)*(OP_l_6_c_4_r_*SK(8) - 2*OP_l_6_c_2_r_*x2 - 2*OP_l_6_c_3_r_*x1 + OP_l_6_c_5_r_*Ha_b(2));
+K(6,3) = SK(6)*(OP_l_6_c_5_r_*SK(8) + 2*OP_l_6_c_2_r_*x1 - 2*OP_l_6_c_3_r_*x2 - OP_l_6_c_4_r_*Ha_b(2));
+K(6,4) = SK(1)*(OP_l_6_c_2_r_*SK(7) - 2*OP_l_6_c_3_r_*x3 - 2*OP_l_6_c_4_r_*x2 + 2*OP_l_6_c_5_r_*x1);
+K(6,5) = SK(5)*(OP_l_6_c_5_r_*SK(7) - 2*OP_l_6_c_2_r_*x1 + 2*OP_l_6_c_3_r_*x2 - 2*OP_l_6_c_4_r_*x3);
+K(6,6) = -SK(3)*(OP_l_6_c_4_r_*SK(7) + 2*OP_l_6_c_2_r_*x2 + 2*OP_l_6_c_3_r_*x1 + 2*OP_l_6_c_5_r_*x3);
+K(7,1) = SK(4)*(OP_l_7_c_3_r_*SK(8) + 2*OP_l_7_c_4_r_*x1 + 2*OP_l_7_c_5_r_*x2 + OP_l_7_c_2_r_*Ha_b(2));
+K(7,2) = SK(2)*(OP_l_7_c_4_r_*SK(8) - 2*OP_l_7_c_2_r_*x2 - 2*OP_l_7_c_3_r_*x1 + OP_l_7_c_5_r_*Ha_b(2));
+K(7,3) = SK(6)*(OP_l_7_c_5_r_*SK(8) + 2*OP_l_7_c_2_r_*x1 - 2*OP_l_7_c_3_r_*x2 - OP_l_7_c_4_r_*Ha_b(2));
+K(7,4) = SK(1)*(OP_l_7_c_2_r_*SK(7) - 2*OP_l_7_c_3_r_*x3 - 2*OP_l_7_c_4_r_*x2 + 2*OP_l_7_c_5_r_*x1);
+K(7,5) = SK(5)*(OP_l_7_c_5_r_*SK(7) - 2*OP_l_7_c_2_r_*x1 + 2*OP_l_7_c_3_r_*x2 - 2*OP_l_7_c_4_r_*x3);
+K(7,6) = -SK(3)*(OP_l_7_c_4_r_*SK(7) + 2*OP_l_7_c_2_r_*x2 + 2*OP_l_7_c_3_r_*x1 + 2*OP_l_7_c_5_r_*x3);
+
