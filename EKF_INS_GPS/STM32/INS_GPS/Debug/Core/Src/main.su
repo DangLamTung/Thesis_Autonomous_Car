@@ -1,0 +1,47 @@
+cmath:106:3:constexpr float std::asin(float)	16	static
+cmath:125:3:constexpr float std::atan(float)	16	static
+cmath:144:3:constexpr float std::atan2(float, float)	16	static
+cmath:463:3:constexpr float std::sqrt(float)	16	static
+cmath:618:3:constexpr bool std::isnan(float)	16	static
+mpu_data_type.hpp:59:8:char* ftoa(double, char*, int)	56	static
+mpu_data_type.hpp:201:7:float invSqrt(float)	32	static
+LPF.hpp:51:1:LPF::LPF()	16	static
+mpu9250.hpp:143:16:uint8_t wait_for_gpio_state_timeout(GPIO_TypeDef*, uint16_t, GPIO_PinState, uint32_t)	32	static,ignoring_inline_asm
+mpu9250.hpp:166:13:void I2C_ClearBusyFlagErratum(I2C_Module_t*, uint32_t)	40	static,ignoring_inline_asm
+mpu9250.hpp:247:6:char init_MPU()	64	static
+mpu9250.hpp:357:6:void adding_raw()	4	static
+mpu9250.hpp:366:6:void delete_raw()	4	static
+mpu9250.hpp:377:10:IMU_data process_MPU(bool, bool)	56	static
+mpu9250.hpp:435:10:IMU_data process_MPU_DMA(bool, bool)	48	static
+mpu9250.hpp:494:10:MAG_data magnet_get_raw()	72	static
+mpu9250.hpp:524:10:MAG_data process_magnet()	96	static
+mpu9250.hpp:559:13:EULER_angle complementary_filter(IMU_data, float, float)	80	static
+mpu9250.hpp:587:6:void notify_state(AHRS_con)	24	static
+mpu9250.hpp:599:10:AHRS_con check_AHRS(bool)	32	static
+mpu9250.hpp:631:13:EULER_angle quat2euler(quaternion)	120	static
+mpu9250.hpp:667:16:IMU_calib_data calibration_IMU()	64	static
+EKF2.h:103:7:void EKF2::loadEKF()	24	static
+EKF2.h:366:1:EKF2::EKF2()	16	static
+EKF2.h:369:1:EKF2::~EKF2()	16	static
+EKF2.h:369:1:virtual EKF2::~EKF2()	16	static
+calib_magnet.h:3:6:void calib_magnet()	3504	static
+gps.h:33:6:void substring(char*, char*, int, int)	32	static
+gps.h:43:6:void process_NMEA(volatile GPS*, char*)	136	static
+uart_dma.h:19:6:void UARTTXInit()	8	static
+uart_dma.h:23:6:void UARTTxData()	16	static
+uart_dma.h:32:6:void UARTAddToTxBuff(const void*, u8)	16	static
+uart_dma.h:39:6:void UARTTxComplete()	8	static
+uart_dma.h:47:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	16	static
+main.cpp:99:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	96	static
+main.cpp:151:5:int main()	104	static
+main.cpp:225:6:void SystemClock_Config()	88	static
+main.cpp:270:13:void MX_I2C1_Init()	8	static
+main.cpp:304:13:void MX_TIM4_Init()	32	static
+main.cpp:349:13:void MX_USART1_UART_Init()	8	static
+main.cpp:382:13:void MX_USART3_UART_Init()	8	static
+main.cpp:413:13:void MX_DMA_Init()	16	static
+main.cpp:437:13:void MX_GPIO_Init()	40	static
+main.cpp:466:6:void Error_Handler()	4	static,ignoring_inline_asm
+main.cpp:475:1:void __static_initialization_and_destruction_0(int, int)	16	static
+main.cpp:475:1:cpp)	8	static
+main.cpp:475:1:cpp)	8	static

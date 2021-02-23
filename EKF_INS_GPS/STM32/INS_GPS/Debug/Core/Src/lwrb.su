@@ -1,0 +1,16 @@
+lwrb.c:61:1:lwrb_init	8	static
+lwrb.c:85:1:lwrb_is_ready	0	static
+lwrb.c:96:1:lwrb_free	0	static
+lwrb.c:108:1:lwrb_set_evt_fn	0	static
+lwrb.c:126:1:lwrb_write	24	static
+lwrb.c:171:1:lwrb_read	24	static
+lwrb.c:215:1:lwrb_peek	32	static
+lwrb.c:262:1:lwrb_get_free	0	static
+lwrb.c:290:1:lwrb_get_full	0	static
+lwrb.c:315:1:lwrb_reset	4	static
+lwrb.c:329:1:lwrb_get_linear_block_read_address	0	static
+lwrb.c:342:1:lwrb_get_linear_block_read_length	0	static
+lwrb.c:372:1:lwrb_skip	8	static
+lwrb.c:395:1:lwrb_get_linear_block_write_address	0	static
+lwrb.c:408:1:lwrb_get_linear_block_write_length	0	static
+lwrb.c:450:1:lwrb_advance	8	static
