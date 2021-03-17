@@ -1,5 +1,10 @@
-function quatOut = QuatMult(quatA,quatB)
+function quatOut = QuatMult(q,p)
 % Calculate the following quaternion product quatA * quatB using the 
 % standard identity 
+q_l = [[q(1) -q(2) -q(3) -q(4)]
+       [q(2) q(1) -q(4) q(3)]
+       [q(3) q(4) q(1) -q(2)]
+       [q(4) -q(3) q(2) q(1)]];
 
-quatOut = [quatA(1)*quatB(1)-quatA(2:4)'*quatB(2:4); quatA(1)*quatB(2:4) + quatB(1)*quatA(2:4) + cross(quatA(2:4),quatB(2:4))];
+
+quatOut = q_l*transpose(p);
