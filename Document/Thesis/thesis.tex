@@ -1,0 +1,300 @@
+\documentclass[12pt,a4paper, twoside]{book}
+
+\newcommand\studenta{Đặng Lâm Tùng}
+\newcommand\mssva{1713856}
+%\newcommand\studentb{Nguyễn Văn B}
+%\newcommand\mssvb{87654321}
+\newcommand\thesisname{Autonomous Car }
+\newcommand\reportname{Undergradued Thesis}
+\newcommand\supervisor{ThS. Nguyễn Khánh Lợi}
+\newcommand\ngaygiaonhiemvu{2-10-2019}
+\newcommand\ngayxongnhiemvu{2-10-2020}
+\newcommand\noidungnhiemvu{
+	\begin{itemize}\setlength\itemsep{-0.2em}
+	\item Nhiệm vụ 1
+	\item Nhiệm vụ 2
+	\item Nhiệm vụ 3
+	\end{itemize}
+}
+
+\usepackage[utf8]{vietnam}
+\usepackage{titlesec} 
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{./figure/}}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\newtheorem{exam}{Ví dụ}[section]
+\usepackage{acro}
+\usepackage{cite}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+	\usetikzlibrary{shapes.geometric, arrows}
+	\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=0.75cm,text centered, draw=black]
+	\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2.5cm, minimum height=0.75cm, text centered, draw=black, text width=2cm]
+	\tikzstyle{process} = [rectangle, minimum width=2.5cm, minimum height=0.75cm, text centered, draw=black, text width=3cm]
+	\tikzstyle{decision} = [diamond, minimum width=2cm, minimum height=2cm, text centered, draw=black, text width=1cm]
+	\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+\geometry{
+	a4paper,
+	total={160mm,247mm},
+	left=25mm,
+	right=25mm,
+	top=25mm,
+	bottom=25mm,
+}
+
+	
+\def\coverpage
+	{
+	\pagestyle{empty} 
+	 	\begin{minipage}[b][25.5cm][t]{15cm}	
+		\begin{center}
+		{
+		\vspace{3cm}
+		\fontsize{20}{1}\selectfont 
+		\textbf{\parbox[c][3cm]{14cm}{\centering \MakeUppercase{\thesisname}}
+		}
+		\\
+		\vspace{0.1\paperheight}
+		{\fontsize{14}{1}\selectfont 
+		\MakeUppercase{\reportname}
+		\\
+		\vspace{0.05\paperheight}
+		\studenta \space -- \mssva
+		\\
+%		\studentb \space -- \mssva \\
+		Giảng viên hướng dẫn
+		\\
+		\supervisor
+		}
+		}
+		\\
+		\vspace{0.25\paperheight}
+		\begin{minipage}{0.8\textwidth}
+			\begin{minipage}{0.2\textwidth}
+				\includegraphics[width=0.7\linewidth]{hcmut_logo.jpg}
+			\end{minipage}
+			\begin{minipage}{\textwidth}\centering \raggedright
+				{\fontsize{12}{1}\selectfont
+				ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\\
+				TRƯỜNG ĐẠI HỌC BÁCH KHOA\\
+				KHOA ĐIỆN – ĐIỆN TỬ, BỘ MÔN VIỄN THÔNG\\
+				}
+			\end{minipage}
+		\end{minipage}
+		\\
+		\vspace{0.05\paperheight}
+		\the\month\space -- \the\year	
+		\end{center}		
+	\end{minipage}
+	}
+	
+\def\nhiemvuluanvanpage	
+{
+	\cleardoublepage
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			{\fontsize{9}{1}\selectfont
+			ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH\\
+			TRƯỜNG ĐẠI HỌC BÁCH KHOA\\}
+		\end{center}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\small
+		\begin{center}
+			{\fontsize{9}{1}\selectfont
+			CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\\
+			Độc lập -- Tự do -- Hạnh Phúc\\}
+		\end{center}
+	\end{minipage}
+	\begin{center}
+		\underline{\hspace{0.8\textwidth}}
+	\end{center}
+
+	\begin{minipage}{0.8\textwidth}
+		Số:\underline{\hspace{2.4cm}}/BKĐT\\
+		Khoa: \textbf{Điện -- Điện tử}\\
+		Bộ môn: \textbf{Viễn thông}
+	\end{minipage}
+	\begin{center}
+		\bfseries{\MakeUppercase{Nhiệm vụ luận văn tốt nghiệp}}
+	\end{center}
+	\begin{enumerate}\setlength\itemsep{-0.2em}
+	\item 
+	\begin{tabbing}
+	Họ và tên: \= \studenta, \hspace{0.15\paperwidth} \= MSSV: \mssva 
+	% \\ \> \studentb, \> MSSV: \mssvb
+	\end{tabbing}
+	\item Ngành: Điện -- Điện tử, Chuyên ngành: Kỹ thuật Điện tử -- Truyền thông
+	\item Đề tài: \thesisname
+	\item Nhiệm vụ: \noidungnhiemvu
+	\item Ngày giao nhiệm vụ: \ngaygiaonhiemvu
+	\item Ngày hoàn thành nhiệm vụ: \ngayxongnhiemvu
+	\item 
+	\begin{tabbing}
+	Họ và tên người hướng dẫn: \hspace{0.25\paperwidth} \=  Phần hướng dẫn:\\
+	\supervisor \> 100\%\\
+	BM Viễn Thông, Khoa Điện – Điện Tử
+	\end{tabbing}
+	\end{enumerate}
+	
+	Nội dung và yêu cầu LVTN đã được thông qua Bộ Môn.
+	
+	\vspace{\baselineskip}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			{\fontsize{12}{1}\selectfont
+			Tp. HCM, Ngày \underline{\hspace{0.5cm}} tháng \underline{\hspace{0.5cm}} năm 20\underline{\hspace{0.5cm}} \\
+			\textbf{CHỦ NHIỆM BỘ MÔN}\\
+			\par
+			\vspace{0.06\paperheight}	
+			PGS. TS. Hà Hoàng Kha
+			}
+		\end{center}
+	\end{minipage}	
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			{\fontsize{12}{1}\selectfont
+			Tp. HCM, Ngày \underline{\hspace{0.5cm}} tháng \underline{\hspace{0.5cm}} năm 20\underline{\hspace{0.5cm}} \\
+			\textbf{NGƯỜI HƯỚNG DẪN CHÍNH}\\
+			\vspace{0.06\paperheight}	
+			\supervisor
+			}
+		\end{center}
+	\end{minipage}
+	
+	\vspace{\baselineskip}
+	\begin{minipage}{0.8\textwidth}
+		\textbf{PHẦN DÀNH CHO KHOA, BỘ MÔN:}\\
+		Người duyệt (chấm sơ bộ): \underline{\hspace{3.5cm}} \\
+		Đơn vị:\underline{\hspace{7.1cm}} \\
+		Ngày bảo vệ:\underline{\hspace{6.1cm}}\\
+		Điểm tổng kết:\underline{\hspace{5.75cm}}\\
+		Nơi lưu trữ luận văn:\underline{\hspace{4.65cm}}\\
+	\end{minipage}
+}
+
+\input{text/tuviettat.tex}
+		
+\begin{document}
+
+\coverpage
+
+\nhiemvuluanvanpage
+		
+\frontmatter
+
+\titleformat{\chapter}
+  {\Large\bfseries}
+  {\thechapter .}
+  {.5em}
+  {\filleft\MakeUppercase}
+  [\vspace{.5ex}]
+
+\chapter*{Lời cám ơn}
+	\input{text/loicamon.tex}
+
+	\vspace{\baselineskip}
+	\hfill
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			{\fontsize{12}{1}\selectfont
+			Tp. HCM, \today 
+			\vspace{0.1\paperheight}	
+			\studenta
+%			,\space \studentb
+			}
+		\end{center}
+	\end{minipage}
+	
+\chapter*{Lời cam đoan}
+	Tôi tên: \studenta \space (MSSV: \mssva), 
+%	\studentb \space (MSSV: \mssvb),
+	là sinh viên chuyên ngành Kỹ thuật Điện tử - Truyền thông, tại Trường Đại học Bách Khoa, Đại học Quốc gia thành phố Hồ Chí Minh. Tôi xin cam đoan những nội dung sau đều là sự thật: 
+	
+	\begin{itemize}
+		\item  Công trình nghiên cứu này hoàn toàn do chính tôi thực hiện; 
+		\item  Các tài liệu và trích dẫn trong luận văn này được tham khảo từ các nguồn thực tế, có uy tín và độ chính xác cao; 
+		\item  Các số liệu và kết quả của công trình này được tôi tự thực hiện một cách độc lập và trung thực.
+	\end{itemize}
+
+	\vspace{\baselineskip}
+	\hfill
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			{\fontsize{12}{1}\selectfont
+			Tp. HCM, \today 
+			\vspace{0.1\paperheight}	
+			\studenta 
+%			,\space \studentb
+			}
+		\end{center}
+	\end{minipage}
+
+\chapter*{Tóm tắt nội dung}
+	\input{text/tomtatviet.tex}
+
+\chapter*{Abstract}
+	\input{text/tomtateng.tex}
+
+
+\tableofcontents
+{%
+ \let\oldnumberline\numberline%
+ \renewcommand{\numberline}{\figurename~\oldnumberline}%
+ \listoffigures%
+}
+{%
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\tablename~\oldnumberline}%
+\listoftables%
+}
+\printacronyms[name = {Danh sách từ viết tắt}]
+	
+\mainmatter
+
+\fancyhead{}  % Clears all page headers and footers
+\fancyhead[L]{\nouppercase\leftmark}
+\fancyhead[R]{\thepage}
+\cfoot{}
+\pagestyle{fancy}
+
+\titleformat{\chapter}
+  {\Large\bfseries}
+  {Chương \thechapter .}
+  {.5em}
+  {\filleft\MakeUppercase}
+  [\vspace{.5ex}]
+
+\input{text/chuong1.tex}
+\input{text/chuong2.tex}
+\input{text/chuong3.tex}
+\input{text/chuong4.tex}
+
+\bibliographystyle{reference/IEEEtran}
+\bibliography{IEEEabrv,reference/tailieuthamkhao}
+
+\appendix
+\titleformat{\chapter}
+  {\Large\bfseries}
+  {Phụ lục \thechapter .}
+  {.5em}
+  {\filleft\MakeUppercase}
+  [\vspace{.5ex}]
+
+\input{text/phuluc.tex}
+
+\end{document}

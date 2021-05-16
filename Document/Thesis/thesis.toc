@@ -1,0 +1,30 @@
+\acswitchoff 
+\contentsline {chapter}{\numberline {1}Giới thiệu}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Đặt vấn đề}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Phạm vi và phương pháp nghiên cứu}{1}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Cơ sở lý thuyết}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Lý thuyết về xử lý ảnh:}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Mạng Neuron tích chập (CNN):}{3}{subsection.2.1.1}%
+\contentsline {subsubsection}{Tích chập (Convolution)}{3}{subsubsection*.9}%
+\contentsline {subsubsection}{Mạng neuron tích chập}{3}{subsubsection*.10}%
+\contentsline {subsubsection}{Phân lớp}{6}{subsubsection*.11}%
+\contentsline {section}{\numberline {2.2}Long sort term memory}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Recurrent Neural Network}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Long Short Term Memory}{7}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Cách sử dụng Latex cho báo cáo luận văn}{10}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Cách viết chương cơ sở lý thuyết}{10}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Nội dung chính}{10}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Cách viết tắt}{11}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Cách viết công thức toán học}{11}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Cách chèn hình vẽ}{12}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Cách thêm và sử dụng tài liệu tham khảo}{12}{subsection.2.3.5}%
+\contentsline {section}{\numberline {2.4}Kết luận chương}{14}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Kết quả nghiên cứu}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Phương pháp tiếp cận}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Kết quả và phân tích}{16}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Kết luận chương}{18}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Kết luận}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tóm tắt và kết luận chung}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Hướng phát triển}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Mục tiêu và tiến độ thực hiện}{19}{section.4.3}%
+\contentsline {chapter}{\numberline {A}Code chương trình}{23}{appendix.A}%

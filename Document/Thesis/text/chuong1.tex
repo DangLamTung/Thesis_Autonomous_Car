@@ -1,0 +1,35 @@
+\chapter{Giới thiệu} \label{sec:chuong-1} % câu lệnh này nghĩa là bắt đầu một chương với tên gọi là Giới thiệu, chương này được đánh nhãn là sec:chuong-1 để có thể liên kết đến nếu cần thiết
+
+\section{Đặt vấn đề} \label{sec:chuong-1-datvande} % câu lệnh này nghĩa là bắt đầu mục nhỏ cấp 1 trong chương hiện tại
+
+
+
+. % để bắt đầu một đoạn văn mới trong Latex, ta cách 1 dòng trống. Câu văn này sẽ bắt đầu đoạn văn mới
+
+Trong cuộc sống hiện đại ngày nay, chất lượng cuộc sống ngày càng được nâng cao, thì vấn đề sức khỏe, đặc biệt là về các bệnh tim mạch ngày càng được quan tâm, những phương pháp mới tiến bộ hơn được sử dụng vào trong chẩn đoán và điều trị. Một phương pháp chẩn đoán hiện nay được quan tâm nghiên cứu rất nhiều đó là phương pháp chụp cắt lớp MRI. 
+
+Thông thường, khi chụp MRI khu vực tim sẽ được chụp nhiều lát cắt (slide), số slide này có số lượng tầm khoảng 8 - 16 nhát cắt, và để chẩn đoán thì cần phải chụp nhiều chuỗi ảnh như vậy để có thể quan sát quy trình tim đập. Data này gồm một số video là video chụp MRI tim trong thời gian 1s - 30 khung hình, gồm 2 class là normal và abnormal, chất lượng video 4K, dung lượng > 700 MB/file, được cung cấp bởi CLB AI đại học Bách Khoa, do thầy Quản Thành Thơ, khoa khoa học máy tính quản lý.
+
+Em hiểu rõ bản thân không có nhiều kiến thức về lĩnh vực này, nên em chỉ coi bài toán này như một bài toán về deep learning, hoàn toàn chưa có đủ giá trị thực hiện như một mô hình chẩn đoán hoàn chỉnh có thể áp dụng được trong thực tế.
+
+Nhiệm vụ của đề cương này là: 
+
+  + Tìm hiểu phương pháp xử lý hiệu quả với bài toán, bài toán này là bài toán phân loại (classification) một video MRI.
+   
+  + Cài đặt thuật toán xử lý bài toán, thực hiện kiểm chứng hiệu quả của phương pháp.
+
+
+\section{Phạm vi và phương pháp nghiên cứu}
+	
+	Trong mục này, sinh viên liệt kê các phương pháp đã dùng để kiểm nghiệm giả thiết trong bài toán nghiên cứu (chẳng hạn mô phỏng hay thực nghiệm). 
+	Đồng thời, sinh viên liệt kê các giới hạn trong quá trình thực hiện các phương pháp (chẳng hạn mô phỏng trong điều kiện gì, đo đạc trong điều kiện gì).
+	
+		Phạm vi và phương pháp nghiên cứu trong đề cương luận văn như sau:
+\begin{itemize} % lệnh này nhằm tạo một danh sách có chấm đầu dòng
+			\item Tìm hiểu dữ liệu bài toán,
+			\item Xây dựng mô hình nhận diện (detection) tim trong ảnh chụp MRI sử dụng Tensorflow Object Detection.
+			\item Xây dựng mô hình phân loại (classification) chuỗi ảnh tim (video) sử dụng 3D convolution và LSTM,
+			\item Thử nghiệm mô hình.
+	\end{itemize}
+	
+

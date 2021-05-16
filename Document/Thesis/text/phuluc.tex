@@ -1,0 +1,16 @@
+\chapter{Code chương trình}
+
+Nếu báo cáo không có phụ lục, sinh viên tìm và xóa dòng \verb|\input{text/phuluc.tex}| trong file ``thesis.tex''.
+Code chương trình có thể để vào phụ lục A và các chứng minh toán học hỗ trợ có thể để vào phụ lục B.
+Việc lấy code và định dạng được Latex thực hiện tự động.
+
+Sinh viên tham khảo file ``phuluc.tex'' để biết cách đưa code vào báo cáo.
+Trong lệnh \verb|\lstinputlisting|, báo cáo mẫu có đường dẫn đến file ``spectrum.m'' trong thư mục con ``Code'' nằm chung với thư mục chứa báo cáo.
+Sinh viên có thể copy các file code, chẳng hạn code Matlab, vào thư mục ``Code'' và tham khảo file ``phuluc.tex'' để biết cách đưa code vào báo cáo.
+Để tiện lợi hơn, sinh viên có thể chỉnh đường dẫn trong lệnh này đến thư mục chứa code của mình để Latex có thể cập nhật trực tiếp.
+Để định dạng theo các ngôn ngữ lập trình khác nhau, sinh viên thay giá trị ``Maltab'' trong lệnh thành các giá trị khác phù hợp như ``C++'' hay ``Python''. 
+
+Sau đây là ví dụ code Matlab:
+
+\small
+\lstinputlisting[language=Matlab, numbers=left, numberstyle=\small, breaklines]{code/spectrum.m}
