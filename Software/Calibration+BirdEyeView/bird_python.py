@@ -6,12 +6,13 @@ def nothing(x):
 
 # Create a black image, a window
 img = np.zeros((300,512,3), np.uint8)
+cropped = False
 cv2.namedWindow('image')
 
 # create trackbars for color change
-cv2.createTrackbar('a','image',0,180,nothing)
-cv2.createTrackbar('b','image',0,180,nothing)
-cv2.createTrackbar('y','image',0,180,nothing)
+cv2.createTrackbar('a','image',90,180,nothing)
+cv2.createTrackbar('b','image',90,180,nothing)
+cv2.createTrackbar('y','image',90,180,nothing)
 cv2.createTrackbar('f','image',0,2000,nothing)
 cv2.createTrackbar('dist','image',0,2000,nothing)
 
@@ -51,11 +52,33 @@ while True:
     warped = cv2.warpPerspective(frame, transformationMat , (frame.shape[0]+200, frame.shape[1]))
 
 
+    
+    cv2.imshow('frame', frame)
     cv2.imshow("Result", warped)
       #  operations on the frame come here
-    cv2.imshow('frame', frame)
+    
+
+    if(cropped):
+      imCrop = warped[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
+      cv2.imshow("Image", imCrop)
     key = cv2.waitKey(3) & 0xFF
     if key == ord('q'):  # Quit
         break
+    if key == ord('c'):  # Quit
+      r = cv2.selectROI(warped)
+
+      imCrop = warped[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
+      cv2.imshow("Image", imCrop)
+      cropped = True
+    if key == ord('s'):
+      transform_file = open("transform_file.txt", "w")
+      for row in transformationMat:
+          np.savetxt(transform_file, row)
+          transform_file.close()
+      crop_file = open("crop_img.txt", "w")
+      for row in r:
+          np.savetxt(crop_file, row)
+          crop_file.close()
+
 cap.release()
 cv2.destroyAllWindows()
