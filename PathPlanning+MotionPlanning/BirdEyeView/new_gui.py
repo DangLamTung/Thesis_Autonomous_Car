@@ -23,6 +23,10 @@ from stanley_controller import *
 from list_port import *
 from connect import *
 from zmq_read import *
+# from python_gps import *
+import io
+import pynmea2
+
 # raw=serial.Serial("COM5",115200)
 # raw.open()
 class ReadLine:
@@ -48,9 +52,16 @@ class ReadLine:
                 self.buf.extend(data)
 # rl = ReadLine(raw)             
 ser = serial.Serial()
+ser_gps = serial.Serial()
+sio = io.TextIOWrapper(io.BufferedRWPair(ser_gps, ser_gps))
+
 rl = ReadLine(ser)
 detached = False
 portName ='COM5'    
+portGPS = 'COM17'
+
+global_path = []
+
 
 class MyWidget(pg.ViewBox):
 
@@ -195,16 +206,28 @@ class MainWindow(QtWidgets.QMainWindow):
 
         for (i,ser_name) in enumerate(self.serial_list):
             self.listWidget.insertItem(i, ser_name)
+
+
         self.listWidget.clicked.connect(self.list_clicked)
+        self.listWidget_2.clicked.connect(self.list_clicked)
+
         # self.plot([1,2,3,4,5,6,7,8,9,10], [30,32,34,32,33,31,29,32,35,45])
         self.pushButton.clicked.connect(self.connectCOM)
         self.pushButton_2.clicked.connect(self.detachCOM)
-        
+        self.pushButton_3.clicked.connect(self.path_find_clicked)
+        self.pushButton_4.clicked.connect(self.connect_gps)
+
+        self.pushButton_6.clicked.connect(self.get_gps_list)
+        #Control timer
         self.timer = QtCore.QTimer(self)
         self.timer.setInterval(10) # in milliseconds
         self.timer.start()
         self.timer.timeout.connect(self.onNewData)
 
+        #GPS Timer
+        self.timer_gps = QtCore.QTimer(self)
+        self.timer_gps.setInterval(500) # in milliseconds
+        self.timer_gps.timeout.connect(self.read_gps)
         #Show map #######################################################################
         self.drawing = False
         self.lastPoint = QPoint()
@@ -241,7 +264,7 @@ class MainWindow(QtWidgets.QMainWindow):
         row = int(y)
         column = int(x)
         print("Pixel (row="+str(row)+", column="+str(column)+")")
-        scene = win.viewer.scene
+        scene = win.widget_2.scene
 
         item = QGraphicsEllipseItem(x, y, 10, 10)
         item.setPen(QPen(QColor("blue")))
@@ -258,7 +281,7 @@ class MainWindow(QtWidgets.QMainWindow):
         item.setBrush(QBrush(QColor("red")))
         scene.addItem(item)
 
-        win.viewer.setScene(scene)
+        win.widget_2.setScene(scene)
         
         print(pix2global_gui(x,y))
 
@@ -269,13 +292,44 @@ class MainWindow(QtWidgets.QMainWindow):
     def list_clicked1(self):
         global portName
         portName = self.listWidget.currentItem().text()
+    def connect_gps(self):
+        global portGPS, ser_gps, sio
+        try:
+            ser_gps = serial.Serial(portGPS, 9600, timeout=5.0)
+            sio = io.TextIOWrapper(io.BufferedRWPair(ser_gps, ser_gps))
+            self.timer_gps.start() #Start read GPS
 
+            alert = QMessageBox()
+            connect_check = True
+            alert.setText('Connect GPS OK!')
+                    # ser.open()
+
+        except Exception as e: 
+            print(e)
+            alert = QMessageBox()
+            alert.setText('Error connect GPS!')
+                
+            alert.exec_()
+    def read_gps(self):
+        global sio
+        try:
+            line = sio.readline()
+            msg = pynmea2.parse(line)
+            print(msg.latitude,msg.longitude)
+
+        except Exception as e:
+            print('Read GPS Error: {}'.format(e))
+    def get_gps_list(self):
+        self.serial_list = list_serial_ports()
+        for (i,ser_name) in enumerate(self.serial_list):
+            self.listWidget_2.insertItem(i, ser_name)
+        
     def onNewData(self):
         global rl, ser
             # NB: for PySerial v3.0 or later, use property `in_waiting` instead of function `inWaiting()` below!
         if (ser.in_waiting>0):
             
-            value = rl.readline()#read the bytes and convert from binary array to ASCII
+            value = ser.read(ser.inWaiting())#read the bytes and convert from binary array to ASCII
         # print(data_str, end='') #print the incoming       # read line (single value) from the serial port
             try:
                 X =  (value.decode().replace('\x00','').replace('\x00','')).split(' ')
@@ -347,7 +401,27 @@ class MainWindow(QtWidgets.QMainWindow):
             alert = QMessageBox()
             alert.setText('Error connect COM!')
                 
-            alert.exec_()      
+            alert.exec_()
+    def path_find_clicked(self, checked=None):
+        global global_path 
+        global_path = findRoute(self.check_point)
+        global_path = enhanceWaypoint(global_path)
+
+    
+        pathOnMap = convertPath(global_path)
+        # print(pathOnMap)
+        # _thread.start_new_thread( uart_connect,(global_path,))
+        # _thread.start_new_thread(zmq_connect,(global_path,))
+        scene = self.widget_2.scene
+        
+        
+        for i in pathOnMap:
+            item = QGraphicsEllipseItem(i[1], i[0], 10, 10)
+            item.setPen(QPen(QColor("red")))
+            item.setBrush(QBrush(QColor("red")))
+            scene.addItem(item)
+        self.widget_2.setScene(scene)
+        self.check_point = []      
 def control(button):
     if(button ==1):
         raw.write(b'w')
